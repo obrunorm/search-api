@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<header>
+	<img
+		src="https://live.staticflickr.com/65535/52122578253_b56df00594_h.jpg"
+		style="width: 100%; border-radius: 35px; margin-bottom: -384px"></img>
+</header>
+
+<h:body>
+	<center>
+		<section>
+			<h:form>
+				<h2>
+					<h:outputText value="Cadastrar Unidade de saúde " />
+					<br />
+				</h2>
+
+				<p:outputLabel value="CNES  " />
+				<p:inputText value="#{unidadeDAO.unidade.cnes}" />
+				<br />
+				<br />
+
+				<p:outputLabel value="Nome do estabelecimento  ⠀⠀" />
+				<p:inputText value="#{unidadeDAO.unidade.estabelecimento}" />
+				<br />
+				<br />
+				<br />
+				
+				<p:outputLabel value="Faixa de CEP de início  ⠀⠀" />
+				<p:inputText value="#{unidadeDAO.unidade.cepInicio}" />
+				<br />
+				<br />
+				<br />
+				
+				<p:outputLabel value="Faixa de CEP de fim  ⠀⠀" />
+				<p:inputText value="#{unidadeDAO.unidade.cepFim}" />
+				<br />
+				<br />
+				<br />
+
+			
+
+				<p:button style="width: 10; margin: 10px" value="Voltar"
+					href="../Interface/InterfaceGeral.xhtml"
+					styleClass="ui-button-raised ui-button-danger" />
+				<p:commandButton value="Cadastrar"
+					action="#{unidadeDAO.cadastrarUnidades}"
+					href="../Interface/InterfaceGeral.xhtml"
+					onclick="alert('unidade Cadastrada com Sucesso!')"
+					styleClass="ui-button-raised ui-button-success" />
+				<br></br>
+				<br></br>
+
+			</h:form>
+		</section>
+	</center>
+</h:body>
+
+<footer>
+
+	<img
+		src="https://live.staticflickr.com/65535/52124871611_c6d61a80a5_h.jpg"
+		style="width: 100%; border-radius: 35px; margin-top: -75px"></img>
+
+</footer>
+
+</html>

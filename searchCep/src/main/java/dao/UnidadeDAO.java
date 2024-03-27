@@ -1,0 +1,171 @@
+package dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import bd.Unidade;
+
+public class UnidadeDAO {
+
+	EntityManagerFactory sf = Persistence.createEntityManagerFactory("EmpresaGames");
+
+	EntityManager em2 = sf.createEntityManager();
+
+
+	private List<Unidade> todosUnidades= new ArrayList<Unidade>();
+
+	@SuppressWarnings("unchecked")
+	public List<Unidade> getTodosUnidades() {
+		return em2.createQuery("From Unidade").getResultList();
+	}
+
+	public void setTodosUnidades(List<Unidade> todosUnidades) {
+		this.todosUnidades = todosUnidades;
+	}
+
+	private Unidade unidade = new Unidade();
+	private static Unidade unidadeId = new Unidade();
+
+	public Unidade getUnidadeId() {
+		System.out.println("ID DO UNIDADE NO GET:" + unidadeId.getId());		
+		return em2.find(Unidade.class, unidadeId.getId());
+	}
+
+	@SuppressWarnings("static-access")
+	public void setUnidadeId(Unidade unidadeId) {
+		this.unidadeId = unidadeId;
+	}
+
+	public Unidade getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(Unidade unidade) {
+		this.unidade = unidade;
+	}
+
+	public String getOperacao() {
+		return operacao;
+	}
+
+	public void setOperacao(String operacao) {
+		this.operacao = operacao;
+	}
+
+	public String operacao;
+	public List<Unidade> listaUnidades() {
+		return todosUnidades;
+	}
+
+
+	//CONSULTAR
+	public void consultarUnidadesId() {
+		System.out.println("[ENTROU NO CONSULTA UNIDADE]");
+		em2.getTransaction().begin();
+		Query p = em2.createQuery("From Unidade");
+		@SuppressWarnings("unchecked") 
+		List<Unidade> unidades = p.getResultList();
+
+		for (Unidade c : unidades) {
+			if(unidade.getId() == c.getId()) {
+				unidadeId = em2.find(Unidade.class, unidade.getId());
+				System.out.println("ID DA UNIDADE:" + unidadeId.getId());
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Unidade> consultarTodosUnidades() {
+		System.out.println("[Entrou]");
+		return em2.createQuery("From Unidade").getResultList();
+	}
+
+	//CADASTRAR
+	public void cadastrarUnidades() {
+		System.out.println("[Entrou]\n");
+		em2.getTransaction().begin();
+		// Cadastrar Unidades
+
+		unidade.setCnes(unidade.getCnes());
+
+		unidade.setEstabelecimento(unidade.getEstabelecimento());
+		
+		unidade.setCepInicio(unidade.getCepInicio());
+		
+		unidade.setCepFim(unidade.getCepFim());
+
+
+		em2.persist(unidade);
+		em2.getTransaction().commit();
+		em2.close();
+
+		System.out.println("Unidade Cadastrada\n");
+	}
+
+	//ALTERAR
+	public void alteraUnidade () {
+		System.out.println("[Entrou]\n");
+		em2.getTransaction().begin();
+		Query p = em2.createQuery("From Unidade");
+		@SuppressWarnings("unchecked") 
+		List<Unidade> unidades = p.getResultList();
+
+		for (Unidade c : unidades) {
+			if(unidade.getId() == c.getId()) {
+				// Alterar Unidades
+
+				unidade = em2.find(Unidade.class, unidade.getId());
+
+				unidade.setCnes(unidade.getCnes());
+
+				unidade.setEstabelecimento(unidade.getEstabelecimento());
+				
+				unidade.setCepInicio(unidade.getCepInicio());
+				
+				unidade.setCepFim(unidade.getCepFim());
+
+
+				em2.merge(unidade);		
+				em2.getTransaction().commit();
+				em2.close();
+				System.out.println("Unidade Alterada\n");
+				break;
+			}
+		}
+	}
+
+	//EXCLUIR
+	public void excluiUnidadeUnico () {
+		System.out.println("[Entrou]\n");
+		em2.getTransaction().begin();
+		Query p = em2.createQuery("From Unidade");
+		@SuppressWarnings("unchecked") 
+		List<Unidade> unidades = p.getResultList();
+
+		for (Unidade c : unidades) {
+			if(c.getId() == c.getId()) {
+				// Excluir Unidade
+				System.out.println("Unidade Removida\n");
+				em2.remove(unidade.getId());
+				em2.getTransaction().commit();
+				em2.close();				
+				break;
+			}
+		}
+	}	
+
+	public void excluiTodosUnidades () {
+		System.out.println("[Entrou]\n");
+		em2.getTransaction().begin();
+		int quant = em2.createQuery("Delete From Unidade").executeUpdate();		
+		em2.getTransaction().commit();
+		System.out.println("Quantidade de Unidades Removidas: " + quant);
+		System.out.println("Unidades Removidas com Sucesso!\n");
+	}
+
+}
