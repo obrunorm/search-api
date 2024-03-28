@@ -15,7 +15,27 @@ public class UnidadeDAO {
 	EntityManagerFactory sf = Persistence.createEntityManagerFactory("EmpresaGames");
 
 	EntityManager em2 = sf.createEntityManager();
+	
+	private int cep; // Adicionando o campo cep
+    private Unidade unidadeEncontrada; // Adicionando o campo unidadeEncontrada
 
+    public int getCep() {
+        return cep;
+    }
+
+    public void setCep(int cep) {
+        this.cep = cep;
+    }
+    
+    public Unidade getUnidadeEncontrada() {
+        return unidadeEncontrada;
+    }
+
+    public void setUnidadeEncontrada(Unidade unidadeEncontrada) {
+        this.unidadeEncontrada = unidadeEncontrada;
+    }
+
+    
 
 	private List<Unidade> todosUnidades= new ArrayList<Unidade>();
 
@@ -163,4 +183,19 @@ public class UnidadeDAO {
 		System.out.println("Unidades Removidas com Sucesso!\n");
 	}
 
+	//CONSULTAR CEP
+	 public void buscarUnidadePorCep() {
+	        this.unidadeEncontrada = null; // Reinicializa a unidade encontrada
+
+	        // Consulta todas as unidades
+	        List<Unidade> unidades = em2.createQuery("SELECT u FROM Unidade u", Unidade.class).getResultList();
+
+	        // Itera sobre cada unidade para verificar se o CEP está dentro da faixa
+	        for (Unidade unidade : unidades) {
+	            if (cep >= unidade.getCepInicio() && cep <= unidade.getCepFim()) {
+	                this.unidadeEncontrada = unidade; // Define a unidade encontrada
+	                break; // Sai do loop assim que encontrar uma unidade
+	            }
+	        }
+	    }	
 }
