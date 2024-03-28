@@ -1,0 +1,147 @@
+/* style.css */
+body {
+    height: 100vh; /* Define a altura da página como 100% da altura da viewport */
+    overflow-y: hidden; /* Esconde a barra de rolagem vertical */
+}
+
+.cabecalho {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: none;
+}
+
+.botao-unidades {
+    width: 250px !important; /* Largura do botão */
+    height: 80px !important; /* Altura do botão */
+    font-size: 20px !important;
+    border-radius: 35px !important;
+    background-color: #004aad !important; /* Cor de fundo azul escuro */
+    color: #ffffff !important; /* Cor do texto (branco) */ /* Raio do arredondamento das bordas */
+}
+
+.botao-unidades:hover {
+    background-color: #2c0d63 !important; /* Altere a cor de fundo ao passar o mouse */
+}
+
+.botao-posicionado5 {
+    position: absolute;
+    top: 38%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 60%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-posicionado6 {
+    position: absolute;
+    top: 55%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 60%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.solucao {
+	width: 400x !important; /* Largura do botão */
+    height: 250px !important;
+}
+
+.posicionado {
+	position: absolute;
+    top: 35%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 20%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */	
+}
+
+
+.content {
+    text-align: center;
+}
+
+.content .unidades-button {
+    width: 80%;
+}
+
+.footer {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    padding: 0;
+}
+
+
+
+
+/* Interface Unidade*/
+.titulo{
+	position: absolute;
+    top: 25%; 
+    left: 33%;
+    font-size: 40px !important;
+    color: #004aad !important;
+}
+
+.quadrado-unidades {
+    width: 180px !important; /* Largura do botão */
+    height: 180px !important; /* Altura do botão */
+    font-size: 20px !important;
+    border-radius: 35px !important;
+    background-color: #004aad !important; /* Cor de fundo azul escuro */
+    color: #ffffff !important; /* Cor do texto (branco) */ /* Raio do arredondamento das bordas */
+}
+
+.quadrado-unidades:hover {
+    background-color: #2c0d63 !important; /* Altere a cor de fundo ao passar o mouse */
+}
+
+.botao-posicionado1 {
+    position: absolute;
+    top: 50%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 20%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-posicionado2 {
+    position: absolute;
+    top: 50%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 40%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-posicionado3 {
+    position: absolute;
+    top: 50%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 60%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-posicionado4 {
+    position: absolute;
+    top: 50%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 80%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-posicionado-voltar {
+	position: absolute;
+    top: 80%; /* Posiciona o elemento a 50% da altura da viewport */
+    left: 50%; /* Posiciona o elemento a 50% da largura da viewport */
+    transform: translate(-25%, -25%); /* Centraliza o elemento */
+}
+
+.botao-voltar {
+    width: 125px !important; /* Largura do botão */
+    height: 40px !important; /* Altura do botão */
+    font-size: 20px !important;
+    border-radius: 35px !important;
+    background-color: #004aad !important; /* Cor de fundo azul escuro */
+    color: #ffffff !important; /* Cor do texto (branco) */ /* Raio do arredondamento das bordas */
+}
+
+.botao-voltar:hover {
+    background-color: #2c0d63 !important; /* Altere a cor de fundo ao passar o mouse */
+}
+
+/* Interface Unidade*/
+
+
+

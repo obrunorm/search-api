@@ -1,34 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	
 
 <h:head>
-	
+    <link rel="stylesheet" type="text/css" href="../Resources/style.css" />
 </h:head>
 
-<header>
-<img src="https://live.staticflickr.com/65535/52122767394_66119c2280_h.jpg" style="width:100%; border-radius: 35px;margin-bottom: -100px;"></img>
-</header>
-
 <h:body>
+    <header>
+        <img src="../Img/cabecalho.png" class="cabecalho" />
+    </header>
+
+    <div class="centralizado">
+        <h:form>
+		    <p:commandButton styleClass="botao-unidades botao-posicionado5" value="Informações Unidade" action="InterfaceUnidade.xhtml" />
+		</h:form>
 		
-	<center>	
-	<h:form>
+		<h:form>
+		    <p:commandButton styleClass="botao-unidades botao-posicionado6" value="Buscar Unidade" action="InterfaceBuscaCep.xhtm" />
+		</h:form>
+		
+		<p:column>
+                <img src="../Img/solucoes.png" class="solucao posicionado" />
+            </p:column>
 
-    <p:button style="width: 80%" value="Unidades"  href="InterfaceUnidade.xhtml" styleClass="ui-button-raised" /><br></br><br></br>
-	
-	</h:form>
-	</center>
-	
+    </div>
+
+    <p:panelGrid columns="1">
+        <p:row>
+            <p:column>
+                <img src="../Img/rodape.png" class="footer" />
+            </p:column>
+        </p:row>
+    </p:panelGrid>
 </h:body>
-
-<footer>
-
-<img src="https://live.staticflickr.com/65535/52122545803_bc086af1ce_h.jpg" style="width:100%; border-radius: 35px;margin-top: -49px;"></img>
-
-</footer>
 
 </html>
