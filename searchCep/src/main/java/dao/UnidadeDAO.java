@@ -106,38 +106,33 @@ public class UnidadeDAO {
 
 		System.out.println("Unidade Cadastrada\n");
 	}
-
+	
 	//ALTERAR
 	public void alteraUnidade () {
-		System.out.println("[Entrou]\n");
-		em2.getTransaction().begin();
-		Query p = em2.createQuery("From Unidade");
-		@SuppressWarnings("unchecked") 
-		List<Unidade> unidades = p.getResultList();
+	    System.out.println("[Entrou]\n");
+	    em2.getTransaction().begin();
 
-		for (Unidade c : unidades) {
-			if(unidade.getId() == c.getId()) {
-				// Alterar Unidades
+	    // Encontrar a unidade no banco de dados pelo ID
+	    Unidade unidadePersistida = em2.find(Unidade.class, unidade.getId());
 
-				unidade = em2.find(Unidade.class, unidade.getId());
+	    if (unidadePersistida != null) {
+	        // Atualizar os atributos da unidade persistida com os novos valores
+	        unidadePersistida.setCnes(unidade.getCnes());
+	        unidadePersistida.setEstabelecimento(unidade.getEstabelecimento());
+	        unidadePersistida.setCepInicio(unidade.getCepInicio());
+	        unidadePersistida.setCepFim(unidade.getCepFim());
 
-				unidade.setCnes(unidade.getCnes());
+	        // Mesclar (atualizar) a unidade persistida no banco de dados
+	        em2.merge(unidadePersistida);
+	        em2.getTransaction().commit();
+	        em2.close();
 
-				unidade.setEstabelecimento(unidade.getEstabelecimento());
-				
-				unidade.setCepInicio(unidade.getCepInicio());
-				
-				unidade.setCepFim(unidade.getCepFim());
-
-
-				em2.merge(unidade);		
-				em2.getTransaction().commit();
-				em2.close();
-				System.out.println("Unidade Alterada\n");
-				break;
-			}
-		}
+	        System.out.println("Unidade Alterada\n");
+	    } else {
+	        System.out.println("Unidade não encontrada para alteração");
+	    }
 	}
+
 
 	//EXCLUIR
 	public void excluiUnidadeUnico () {
@@ -148,17 +143,17 @@ public class UnidadeDAO {
 		List<Unidade> unidades = p.getResultList();
 
 		for (Unidade c : unidades) {
-			if(c.getId() == c.getId()) {
-				// Excluir Unidade
-				System.out.println("Unidade Removida\n");
-				em2.remove(unidade.getId());
-				em2.getTransaction().commit();
-				em2.close();				
-				break;
-			}
+		    if(c.getId() == unidade.getId()) {
+		        // Excluir Unidade
+		        System.out.println("Unidade Removida\n");
+		        em2.remove(c); // Remover a unidade atual 'c'
+		        em2.getTransaction().commit();
+		        em2.close();                
+		        break;
+		    }
 		}
-	}	
-
+	}
+	
 	public void excluiTodosUnidades () {
 		System.out.println("[Entrou]\n");
 		em2.getTransaction().begin();

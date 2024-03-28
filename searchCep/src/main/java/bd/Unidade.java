@@ -9,19 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-@Entity 
+@Entity
 public class Unidade {
-	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.AUTO) 
-	
-	//Atributos
-	private int id;
-	private String cnes;
-	private String estabelecimento;
-	private int cepInicio;
-	private int cepFim;
-	
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String cnes;
+    private String estabelecimento;
+    private int cepInicio;
+    private int cepFim;	
 	
 	//Get e Set dos Valores	
 	public int getId() {
