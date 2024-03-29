@@ -27,6 +27,7 @@
 ## 🚀Features
 
 - Cadastrar, Atualizar, consultar e Apagar -> Unidades de Saúde
+- Pesquisar pelo CEP -> Unidades de Saúde
 
 ## 📕Installation
 
