@@ -12,7 +12,7 @@ import bd.Unidade;
 
 public class UnidadeDAO {
 
-	EntityManagerFactory sf = Persistence.createEntityManagerFactory("EmpresaGames");
+	EntityManagerFactory sf = Persistence.createEntityManagerFactory("EmpresaRang");
 
 	EntityManager em2 = sf.createEntityManager();
 	
