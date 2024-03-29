@@ -39,7 +39,7 @@
 
 ### 1. Clone this repository
 ```
-git clone https://github.com/miyukiiy/Conexao_maritima_front.git
+git clone https://github.com/obrunorm/testRang
 ```
 ---
 ### 2. Importe o projeto para sua IDE favorita (como Eclipse, IntelliJ, etc.).
