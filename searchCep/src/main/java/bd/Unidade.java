@@ -3,6 +3,7 @@ package bd;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,9 @@ public class Unidade {
     private int id;
     private String cnes;
     private String estabelecimento;
+    @Column(unique = true)
     private int cepInicio;
+    @Column(unique = true)
     private int cepFim;	
 	
 	//Get e Set dos Valores	
@@ -51,6 +54,7 @@ public class Unidade {
 	public void setCepFim(int cepFim) {
 		this.cepFim = cepFim;
 	}
+	
 	
 	//Metodos especiais	
 	@Override
