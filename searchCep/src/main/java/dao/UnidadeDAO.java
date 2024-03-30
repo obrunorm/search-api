@@ -107,25 +107,34 @@ public class UnidadeDAO {
 
 	//CADASTRAR
 	public void cadastrarUnidades() {
-		System.out.println("[Entrou]\n");
-		em2.getTransaction().begin();
-		// Cadastrar Unidades
+	    // Verifica se o cepInicio é igual ao cepFim de alguma unidade
+	    List<Unidade> unidadesComCepFimIgualCepInicio = em2.createQuery("SELECT u FROM Unidade u WHERE u.cepFim = :cepInicio", Unidade.class)
+	                                                        .setParameter("cepInicio", unidade.getCepInicio())
+	                                                        .getResultList();
 
-		unidade.setCnes(unidade.getCnes());
+	    // Se o cepInicio é igual ao cepFim de alguma unidade, imprime uma mensagem e sai do método
+	    if (!unidadesComCepFimIgualCepInicio.isEmpty()) {
+	        System.out.println("O cepInicio é igual ao cepFim de outra unidade");
+	        return;
+	    }
 
-		unidade.setEstabelecimento(unidade.getEstabelecimento());
-		
-		unidade.setCepInicio(unidade.getCepInicio());
-		
-		unidade.setCepFim(unidade.getCepFim());
+	    // Se nenhum registro existir com o cepInicio, cepFim ou cepInicio igual ao cepFim de outra unidade, prossegue com o cadastro
+	    System.out.println("[Entrou]\n");
+	    em2.getTransaction().begin();
+	    
+	    // Cadastrar Unidade
+	    unidade.setCnes(unidade.getCnes());
+	    unidade.setEstabelecimento(unidade.getEstabelecimento());
+	    unidade.setCepInicio(unidade.getCepInicio());
+	    unidade.setCepFim(unidade.getCepFim());
+	    em2.persist(unidade);
+	    em2.getTransaction().commit();
+	    em2.close();
 
-
-		em2.persist(unidade);
-		em2.getTransaction().commit();
-		em2.close();
-
-		System.out.println("Unidade Cadastrada\n");
+	    System.out.println("Unidade Cadastrada\n");
 	}
+
+
 	
 	//ALTERAR
 	public void alteraUnidade () {
