@@ -37,36 +37,19 @@
 - [Tomcat](https://tomcat.apache.org/download-90.cgi)
 - [MySQL](https://dev.mysql.com/downloads/)
 
-### 1. Clone this repository
-```
-git clone https://github.com/obrunorm/testRang
-```
----
-### 2. Importe o projeto para sua IDE favorita (como Eclipse, IntelliJ, etc.).
-### 3. Baixe e instale o Apache Tomcat em seu sistema
-### 4. Configure o banco de dados MySQL 
-```
-Conforme as configurações especificadas no arquivo **`persistence.xml`**. Não esqueça de trocar o usuario e senha.
-```
----
-### 5. Crie um banco de dados chamado 
-```
-`mydatabase'
-```
----
-### 6. Empacote seu projeto em um arquivo WAR (Web Application Archive).
-### 7. Copie o arquivo WAR gerado na etapa anterior para a pasta **`webapps`** dentro da pasta onde o Tomcat foi instalado.
-### 8. Inicie o Tomcat executando o script de inicialização.
-```
- No Windows, geralmente é o arquivo `startup.bat` e no Linux é o `startup.sh`
-```
----
-### 9. Após iniciar o Tomcat, sua aplicação estará disponível no navegador. Acesse-a digitando o seguinte endereço: .
-```
-http://localhost:8080/searchCep/Interface/InterfaceGeral.xhtml
-```
----
 
+### 🏃Rodando projeto com Tomcat
+
+1. Clone o repository: git clone https://github.com/obrunorm/testRang
+2. Baixe e instale o Apache Tomcat em seu sistema
+4. Configure o arquivo `persistence.xml`. Não esqueça adicionar o usuario e senha do mysql. (o arquivo está na pasta META-INF)
+5. Crie um banco de dados chamado `mydatabase'
+6. Copie o arquivo .war da pasta war
+7. Cole o arquivo WAR na pasta `webapps` dentro da pasta onde o Tomcat foi instalado.
+8. Inicie o Tomcat executando o script de inicialização.
+ No Windows, geralmente é o arquivo `startup.bat` e no Linux é o `startup.sh` (está dentro da pasta bin)
+9. Após iniciar o Tomcat, sua aplicação estará disponível no navegador. Acesse-a digitando o seguinte endereço: 
+http://localhost:8080/searchCep/Interface/InterfaceGeral.xhtml
 
 ## 🌐Technologies
 
