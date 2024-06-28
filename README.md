@@ -1,6 +1,5 @@
 <h1 align="center">
-	<img src="https://i.imgur.com/1ivr7ac.png"  alt="Logo"  width="400"><br><br>
-	Rang Teste
+	Search API
 </h1>
 
 <div>
